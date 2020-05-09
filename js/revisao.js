@@ -31,21 +31,27 @@ function quantidadeSexo(){
         ]
     }
 
-    document.getElementById('lblMaculino').innerHTML = ` Existem ${masculino.length} homens na lista`
-    document.getElementById('lblFeminino').innerHTML = ` Existem ${feminino.length} mulheres na lista`
+    document.getElementById('lblMaculino').innerHTML = ` Existem ${homens.length} homens na lista`
+    document.getElementById('lblFeminino').innerHTML = ` Existem ${mulheres.length} mulheres na lista`
 
 }
 
 function compararAltura(){
 
     let homemMaisAlto ;
-    let mulhereMaisAlta ;
+    let mulherMaisAlta ;
 
-    for(let i = 0 ; i < homens.length;i++){
-        if(homens[i].altura > homens[i +1].altura ) {
-            homenMaisAlto = homens[i];
+    for( let i = 1 ; i < homens.length ; i++ ){
+        if(homens[i].altura > homens[i - 1].altura ) {
+            homemMaisAlto = homens[i];
 
          }       
     }
-    console.log(homenMaisAlto);
+    for( let i = 1 ; i < mulheres.length ; i++ ){
+        if(mulheres[i].altura > mulheres[i - 1].altura ) {
+            mulherMaisAlto = mmulheres[i];
+        }
+    }
+    document.getElementById('lblMaculino').innerHTML = `${homenMaisAlto.nome} é o homem mais alto`
+    document.getElementById('lblFeminino').innerHTML = `${mulherMaisAlto.nome} é a mulher mais alta`
 }
